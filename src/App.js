@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios'
+import Jokes from './componen/Jokes';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+    state = { jokes: "" }
+    componentDidMount() {
+        axios.get("https://safe-falls-22549.herokuapp.com/random_joke").then(
+            (z) => {
+                this.setState({
+                    jokes: z.data
+                })
+            }
+        )
+    }
 
-export default App;
+    render() {
+        return (
+          <div className="container text-right mt-5">
+              <Jokes setup={this.state.jokes.setup} punchline={this.state.jokes.punchline} />
+          </div>
+        )
+    }
+  }
+
+export default App; 
