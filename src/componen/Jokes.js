@@ -8,7 +8,7 @@ class Jokes extends Component {
                     <h5 className="card-title">{this.props.setup}</h5>
                     <p className="card-text">{this.props.punchline}</p>
                     <p><span role='img' aria-label="cuaca">😂</span></p>
-                    <a href="reload" class="btn btn-danger" onClick={() => { window.location.reload() }}>Reload <i><span role='img' aria-label="cuaca">🌀</span></i></a>
+                    <a href="#" class="btn btn-danger" onClick={() => { window.location.reload() }}>Reload <i><span role='img' aria-label="cuaca">🌀</span></i></a>
                 </div>
             </div>
         )
